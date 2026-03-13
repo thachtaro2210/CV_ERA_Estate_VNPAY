@@ -30,7 +30,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/order', order);
-
+app.get("/", (req, res) => {
+  res.status(200).send("VNPAY DEMO RUNNING");
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
