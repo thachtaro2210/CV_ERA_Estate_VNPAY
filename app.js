@@ -51,4 +51,14 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+var port = process.env.PORT || '8888';
+app.set('port', port);
+
+var http = require('http');
+var server = http.createServer(app);
+
+server.listen(port, function() {
+  console.log('Server running on port ' + port);
+});
+
 module.exports = app;
